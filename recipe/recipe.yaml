@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: econml
-  version: 0.16.0
+  version: 0.17.0
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/econml-${{ version }}.tar.gz
-  sha256: 4ca862a25e4dd789fd7356adaa04bfed3683056e5d25e90ea75cdab0535d56ff
+  sha256: b637b6166d290203775954c3af58c45a728a932315df3c334a625ab94e6e0b30
 
 build:
-  number: 2
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -36,14 +36,16 @@ requirements:
   run:
     - python
     - numpy
-    - scikit-learn >=1.0,<1.7
-    - sparse
-    - joblib >=0.13.0
-    - statsmodels >=0.10
-    - pandas >1.0
-    - shap >=0.38.1,<0.49.0
-    - lightgbm
-    - packaging
+    - scikit-learn >=1.6.0,<1.10
+    - sparse >=0.15.4
+    - joblib >=1.4.2
+    - statsmodels >=0.14.4
+    - pandas >=2.2.3
+    - shap >=0.46.0
+    - lightgbm >=4.5.0
+    - packaging >=24.2
+    - scipy >=1.13.1
+    - numba >=0.60.0
   run_constraints:
     - dowhy <0.13
 
